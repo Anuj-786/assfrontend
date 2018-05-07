@@ -82,7 +82,7 @@ class App extends Component {
       })
       var updateState = this.state.bookmarks;
       updateState.push(this.state.bookmark);
-      this.setState({bookmark: this.bookmarks});
+      this.setState({bookmarks: updateState})
        event.preventDefault();
     }
 
