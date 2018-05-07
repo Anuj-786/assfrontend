@@ -61,7 +61,7 @@ class App extends Component {
     googleResponse = (res) => {
       this.setState({isAuthenticated: true, user: res.w3.U3, userId: res.googleId});
       this._addUser()
-      if(this.state.isAuthenticated == true) {
+      if(this.state.isAuthenticated === true) {
         this._fetchBookmarks();
       }
     };
