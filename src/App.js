@@ -80,9 +80,7 @@ class App extends Component {
       .catch((error) => {
         console.log(error)
       })
-      var updateState = this.state.bookmarks;
-      updateState.push(this.state.bookmark);
-      // this.setState({bookmarks: updateState})
+      this.setState({this._fetchBookmarks})
        event.preventDefault();
     }
 
