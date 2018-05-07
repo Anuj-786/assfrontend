@@ -8,7 +8,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          isAuthenticated: false,
+          isAuthenticated: true,
           user: '',
           userId: '',
           bookmarks: [],
@@ -20,18 +20,12 @@ class App extends Component {
         this.setState({isAuthenticated: false})
     };
     componentDidMount() {
-
+      this._fetchBookmarks();
 
     }
 
     _fetchBookmarks = () => {
-      fetch('https://backendassignement.herokuapp.com/getbookmarks', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          user_id: this.state.userId
-        })
-      })
+      fetch('https://backendassignement.herokuapp.com/getbookmarks')
       .then( (res) => res.json())
       .then( (data) => {
         this.setState({bookmarks: data.response})
