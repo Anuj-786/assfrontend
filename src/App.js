@@ -40,8 +40,8 @@ class App extends Component {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-          email: 'anuj.k',
-          user_id: 'test'
+          email: this.state.user,
+          user_id: this.state.userId
         })
       })
       .then( (res) => res.json())
@@ -55,11 +55,7 @@ class App extends Component {
 
 
     googleResponse = (res) => {
-      // console.log(res)
-      this.setState({isAuthenticated: true}
-      // console.log(res.WE)
-      console.log(res);
-      this.setState({user: res.w3.U3, userId: res.googleId});
+      this.setState({isAuthenticated: true, user: res.w3.U3, userId: res.googleId});
     };
     _handleInput = (event) => {
       // console.log(event.target.value);
@@ -71,8 +67,8 @@ class App extends Component {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-          url: 'testurl',
-          user_id: 87
+          url: this.state.bookmark,
+          user_id: this.state.userId
         })
       })
       .then( (res) => res.json())
