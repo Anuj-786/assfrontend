@@ -75,11 +75,14 @@ class App extends Component {
       })
       .then( (res) => res.json())
       .then( (data) => {
-          this.setState({bookmarks: data.response})
+        console.log(data)
       })
       .catch((error) => {
         console.log(error)
       })
+      var updateState = this.state.bookmarks;
+      updateState.push(this.state.bookmark);
+      this.setState({bookmark: this.bookmarks});
        event.preventDefault();
     }
 
