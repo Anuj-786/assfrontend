@@ -8,7 +8,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          isAuthenticated: true,
+          isAuthenticated: false,
           user: '',
           userId: '',
           bookmarks: [],
