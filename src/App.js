@@ -85,7 +85,9 @@ class App extends Component {
 
     render() {
         var bookmarksData =  this.state.bookmarks.map((bookmarks) => {
-          return <li key = {bookmarks.id}>{bookmarks.url} </li>
+          if(this.state.userId == bookmarks.user_id) {
+              return <li key = {bookmarks.id}>{bookmark.url}</li>
+          }
         });
         // console.log(this.state.bookmarks)
         let content = !!this.state.isAuthenticated ?
