@@ -22,7 +22,7 @@ class App extends Component {
     };
     componentDidMount() {
       this._fetchBookmarks();
-      this._addUser()
+
     }
 
     _fetchBookmarks = () => {
@@ -55,6 +55,7 @@ class App extends Component {
 
 
     googleResponse = (res) => {
+      this._addUser()
       this.setState({isAuthenticated: true, user: res.w3.U3, userId: res.googleId});
     };
     _handleInput = (event) => {
