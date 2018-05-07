@@ -56,7 +56,7 @@ class App extends Component {
 
     googleResponse = (res) => {
       // console.log(res)
-      // this.setState({isAuthenticated: true, user: res.w3.U3}
+      this.setState({isAuthenticated: true}
       // console.log(res.WE)
       console.log(res);
       this.setState({user: res.w3.U3, userId: res.googleId});
