@@ -4,9 +4,10 @@ import './App.css';
 import { GoogleLogin } from 'react-google-login';
 
 class App extends Component {
-
+    // intializing cunstructor
     constructor(props) {
         super(props);
+        // setting initial state
         this.state = {
           isAuthenticated: false,
           user: '',
@@ -15,15 +16,15 @@ class App extends Component {
           bookmark: '',
         };
     }
-
+    // logout handler
     logout = () => {
         this.setState({isAuthenticated: false})
     };
+    // hnadler when app start
     componentDidMount() {
       this._fetchBookmarks();
-
     }
-
+    // fething bookmarks
     _fetchBookmarks = () => {
       fetch('https://backendassignement.herokuapp.com/getbookmarks')
       .then( (res) => res.json())
@@ -34,6 +35,7 @@ class App extends Component {
         console.log(error)
       })
     }
+    // handler for adding user into database
     _addUser = () => {
       fetch('https://backendassignement.herokuapp.com/users', {
         method: 'POST',
@@ -51,7 +53,7 @@ class App extends Component {
         console.log(error)
       })
     }
-
+    //handeler for google api response
     googleResponse = (res) => {
       this.setState({isAuthenticated: true, user: res.w3.U3, userId: res.googleId});
       this._addUser()
@@ -59,12 +61,12 @@ class App extends Component {
         this._fetchBookmarks();
       }
     };
+    // handler for input value
     _handleInput = (event) => {
-      // console.log(event.target.value);
       this.setState({bookmark: event.target.value })
     }
+    // form handler to save bookmark
     _handleSubmit = (event) => {
-      console.log(this.state.bookmark)
       fetch('https://backendassignement.herokuapp.com/savebookmark', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -80,12 +82,12 @@ class App extends Component {
       .catch((error) => {
         console.log(error)
       })
-      this._fetchBookmarks()
-       event.preventDefault();
+      alert("Saved bookmark");
+      // this._fetchBookmarks()
+      event.preventDefault();
     }
 
     render() {
-      console.log(this.state.bookmarks)
         var bookmarksData =  this.state.bookmarks.map((bookmarks) => {
           if(this.state.userId == bookmarks.user_id) {
               return <li key = {bookmarks.id}>{bookmarks.url}</li>
