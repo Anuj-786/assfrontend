@@ -75,13 +75,12 @@ class App extends Component {
       })
       .then( (res) => res.json())
       .then( (data) => {
-        console.log(data)
+          this.setState({bookmarks: data.response})
       })
       .catch((error) => {
         console.log(error)
       })
        event.preventDefault();
-       this._fetchBookmarks();
     }
 
     render() {
