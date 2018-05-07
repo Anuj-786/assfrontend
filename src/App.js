@@ -8,7 +8,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          isAuthenticated: true,
+          isAuthenticated: false,
           user: '',
           userId: '',
           bookmarks: [],
@@ -86,7 +86,7 @@ class App extends Component {
     render() {
         var bookmarksData =  this.state.bookmarks.map((bookmarks) => {
           if(this.state.userId == bookmarks.user_id) {
-              return <li key = {bookmarks.id}>{bookmark.url}</li>
+              return <li key = {bookmarks.id}>{bookmarks.url}</li>
           }
         });
         // console.log(this.state.bookmarks)
