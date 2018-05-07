@@ -21,8 +21,8 @@ class App extends Component {
         // var apiKey = '860174696391-8g8slc7sge6rj2jn08e2gpi9q1gafsjb.apps.googleusercontent.com'
     };
     componentDidMount() {
-      // this._fetchBookmarks();
-      // this._addUser()
+      this._fetchBookmarks();
+      this._addUser()
     }
 
     _fetchBookmarks = () => {
@@ -36,7 +36,7 @@ class App extends Component {
       })
     }
     _addUser = () => {
-      fetch('http://localhost:3002/users', {
+      fetch('https://backendassignement.herokuapp.com/users', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -65,7 +65,7 @@ class App extends Component {
     }
     _handleSubmit = (event) => {
       console.log(this.state.bookmark)
-      fetch('http://localhost:3002/savebookmark', {
+      fetch('https://backendassignement.herokuapp.com/savebookmark', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
