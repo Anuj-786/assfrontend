@@ -26,7 +26,7 @@ class App extends Component {
 
     _fetchBookmarks = () => {
       fetch('https://backendassignement.herokuapp.com/getbookmarks', {
-        method: 'GET',
+        method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
           user_id: this.state.userId
