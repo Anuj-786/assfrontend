@@ -81,6 +81,7 @@ class App extends Component {
         console.log(error)
       })
        event.preventDefault();
+       this._fetchBookmarks();
     }
 
     render() {
@@ -96,7 +97,6 @@ class App extends Component {
                     <p>user name</p>
                     <div>
                         {this.state.user}
-                        {this.state.userId}
                     </div>
                     <div>
                         <button onClick={this.logout} className="button">
