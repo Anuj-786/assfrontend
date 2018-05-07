@@ -83,7 +83,6 @@ class App extends Component {
         console.log(error)
       })
       alert("Saved bookmark");
-      // this._fetchBookmarks()
       event.preventDefault();
     }
 
