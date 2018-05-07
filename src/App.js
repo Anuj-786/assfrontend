@@ -55,8 +55,8 @@ class App extends Component {
 
 
     googleResponse = (res) => {
-      this._addUser()
       this.setState({isAuthenticated: true, user: res.w3.U3, userId: res.googleId});
+      this._addUser()
     };
     _handleInput = (event) => {
       // console.log(event.target.value);
