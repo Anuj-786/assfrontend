@@ -25,7 +25,13 @@ class App extends Component {
     }
 
     _fetchBookmarks = () => {
-      fetch('https://backendassignement.herokuapp.com/getbookmarks')
+      fetch('https://backendassignement.herokuapp.com/getbookmarks', {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          user_id: this.state.userId
+        })
+      })
       .then( (res) => res.json())
       .then( (data) => {
         this.setState({bookmarks: data.response})
