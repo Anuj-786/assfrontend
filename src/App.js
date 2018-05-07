@@ -20,7 +20,7 @@ class App extends Component {
         this.setState({isAuthenticated: false})
     };
     componentDidMount() {
-      this._fetchBookmarks();
+
 
     }
 
@@ -58,10 +58,12 @@ class App extends Component {
       })
     }
 
-
     googleResponse = (res) => {
       this.setState({isAuthenticated: true, user: res.w3.U3, userId: res.googleId});
       this._addUser()
+      if(this.state.isAuthenticated == true) {
+        this._fetchBookmarks();
+      }
     };
     _handleInput = (event) => {
       // console.log(event.target.value);
