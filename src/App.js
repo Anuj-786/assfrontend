@@ -18,7 +18,6 @@ class App extends Component {
 
     logout = () => {
         this.setState({isAuthenticated: false})
-        // var apiKey = '860174696391-8g8slc7sge6rj2jn08e2gpi9q1gafsjb.apps.googleusercontent.com'
     };
     componentDidMount() {
       this._fetchBookmarks();
@@ -84,7 +83,7 @@ class App extends Component {
 
     render() {
         var bookmarksData =  this.state.bookmarks.map((bookmarks) => {
-          return <li key = {bookmarks.id}>{bookmarks.email} </li>
+          return <li key = {bookmarks.id}>{bookmarks.url} </li>
         });
         // console.log(this.state.bookmarks)
         let content = !!this.state.isAuthenticated ?
