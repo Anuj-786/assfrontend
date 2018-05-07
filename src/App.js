@@ -80,8 +80,8 @@ class App extends Component {
       .catch((error) => {
         console.log(error)
       })
-      this.setState({this._fetchBookmarks})
-       event.preventDefault();
+      this._fetchBookmarks();
+       // event.preventDefault();
     }
 
     render() {
