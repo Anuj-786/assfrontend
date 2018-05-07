@@ -85,7 +85,7 @@ class App extends Component {
     }
 
     render() {
-      console.log(bookmarks)
+      console.log(this.state.bookmarks)
         var bookmarksData =  this.state.bookmarks.map((bookmarks) => {
           if(this.state.userId == bookmarks.user_id) {
               return <li key = {bookmarks.id}>{bookmarks.url}</li>
